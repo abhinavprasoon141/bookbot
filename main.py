@@ -1,8 +1,11 @@
-from stats import get_book_text , word_count , letter_count , sorted_dict
-from operator import itemgetter
+import sys
 
+from stats import get_book_text , word_count , letter_count , sorted_dict
 if __name__ == "__main__":
-    filepath = "/Users/abhinavprasoon/Desktop/programming/bookbot/bookbot/books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    filepath = sys.argv[1]
 
     book_text = get_book_text(filepath)
     num_words = word_count(book_text)
